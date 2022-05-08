@@ -1,36 +1,30 @@
 import Header from '../global/Header'
 import Footer from '../global/Footer'
 import { useState } from 'react'
+import { Navigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
-import { apiCall } from '../customers/CustAction'
+import { apiCall, loadProfile } from '../../services/CallApi'
 
 const Login = () => {
 
   const dispatch = useDispatch()
   const isLoading = useSelector(state => state.isLoading)
   const error = useSelector(state => state.error)
-  const allData = useSelector(state => state.allData)
+  const token = useSelector(state => state.token)
+  const firstName = useSelector(state => state.firstName)
   const[userName, setUserName] = useState('')
   const[password, setPassword] = useState('')
 
-
-  const loadData = isLoading ?(
-      <p>Veuillez patienter</p>
-      ):(
-        error ? (
-          <p>{error}</p>
-        ):(
-          allData ? (
-            <p>Data vides</p>
-          ) : (
-          <p>Data chargées</p>
-          )
+  const loadData = isLoading ?
+      (<p>"Veuillez patienter..."</p>) :
+      (error ? (<p>{error}</p>):(
+          token && dispatch(loadProfile(token))
         )
       )
 
-
   return (
     <>
+    {firstName && <Navigate to="/profile" replace={true} />}
     <Header />
     <main className="main bg-dark">
       <section className="sign-in-content">

@@ -1,53 +1,44 @@
-import { IS_LOADING, LOADING_ERROR, LOGIN, LOGOUT} from "./CustTypes"
-import axios from 'axios'
+import { IS_LOADING, LOADING_ERROR, LOGIN, LOAD_CUSTOMER_DATA, LOGOUT, MODIFY_PROFILE} from "./CustTypes"
 
 export const isLoading = () => {
-    return(
-        {
-            type: IS_LOADING,
-        }
-    )
+    return {
+        type: IS_LOADING,
+    }
 }
 
 export const loadingError = error => {
-    return(
-        {
-            type: LOADING_ERROR,
-            payload: error
-        }
-    )
+    return {
+        type: LOADING_ERROR,
+        payload: error
+    }
 }
 
-export const login = allCustomerData => {
-    return(
-        {
-            type: LOGIN,
-            payload: allCustomerData
-        }
-    )
+export const login = token => {
+    return {
+        type: LOGIN,
+        payload: token
+    }
+}
+
+export const loadCustomerData = (data) => {
+    return {
+        type: LOAD_CUSTOMER_DATA,
+        payload: data
+    }
 }
 
 export const logout = () => {
-    return(
-        {
-            type: LOGOUT,
-        }
-    )
+    return  {
+        type: LOGOUT,
+    }
 }
 
-export const apiCall = (userName, password) => {
-    return dispatch => {
-        console.log(userName);
-        console.log(password);
-        dispatch(isLoading())
-        axios.get('https://data.mongodb-api.com/app/data-jywgs/endpoint/data/beta')
-        //axios.get('https://jsonplaceholder.typicode.com/users')
-        .then ( response => {
-            console.log(response.data)
-            dispatch(login(response.data))
-        })
-        .catch ( error => {
-            dispatch(loadingError(error.message))
-        })
+export const modifyProfile = (body) => {
+    return {
+        type: MODIFY_PROFILE,
+        payload: {
+            firstName: body.firstName,
+            lastName: body.lastName
+        }
     }
 }
