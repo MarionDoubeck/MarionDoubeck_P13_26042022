@@ -9,6 +9,10 @@ const Header = () => {
   const connected = useSelector((state) => state.connected)
   const customerId = useSelector((state) => state.id)
   const customerFirstName = useSelector((state) => state.firstName)
+  const signOut = () => {
+    dispatch(logout)
+    this.props.history.push("/")
+  }
 
   return (
     <div className="main-nav">
@@ -20,14 +24,14 @@ const Header = () => {
       </NavLink>
       {connected ?
         <div>
-        <NavLink exact="true" to={`/${customerId}/profile`}  className="main-nav-item">
-            <i className="fa fa-user-circle"></i>
-            {` ${customerFirstName}`}
-        </NavLink>
-        <NavLink exact="true" to={`/`} onClick={dispatch(logout)}>
-            <i className="fa fa-user-circle"></i>
-            {" "}Sign Out 
-        </NavLink>
+          <NavLink exact="true" to={`/${customerId}/profile`}  className="main-nav-item">
+              <i className="fa fa-user-circle"></i>
+              {` ${customerFirstName}`}
+          </NavLink>
+          <NavLink exact="true" to={`/`} onClick={dispatch(logout)}>
+              <i className="fa fa-sign-out"></i>
+              {" "}Sign Out 
+          </NavLink>
         </div>
       :
         <div>

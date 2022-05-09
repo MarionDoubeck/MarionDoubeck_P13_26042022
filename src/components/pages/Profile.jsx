@@ -19,7 +19,6 @@ const Profile = () => {
   }
   const cancel = (e) => {
     e.preventDefault()
-    console.log(initialFirstName);
     setCustomerFirstName(initialFirstName)
     setCustomerLastName(initialLastName)
     document.getElementById('nameContainer').classList.remove('hidden')
