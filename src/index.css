@@ -309,3 +309,9 @@ body, #root{
   margin: .5rem 0.2rem 0 .8rem;
   padding: .5rem 1rem;
 }
+
+.loadData {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}

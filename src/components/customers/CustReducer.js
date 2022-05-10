@@ -24,27 +24,14 @@ const customerReducer = (state = initialStateCustomer, action) => {
                 ...state,
                 isLoading: false,
                 error: action.payload,
-                connected: false,
-                token: '',
-                id: '',
-                firstName:'',
-                lastName:'',
-                userName:'',
-                password:'',
-                allData: {}
+                connected: false
             }
         case LOGIN:
             return {
                 ...state,
                 isLoading: false,
                 error: '',
-                connected: true,
-                token: action.payload,
-                id: '',
-                firstName:'',
-                lastName:'',
-                userName:'',
-                password:''
+                token: action.payload
             }
         case LOAD_CUSTOMER_DATA:
             return {

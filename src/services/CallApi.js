@@ -13,7 +13,7 @@ export const apiCall = (userName, password) => {
             dispatch(login(response.data.body.token))
         })
         .catch ( error => {
-            dispatch(loadingError(error.message))
+            dispatch(loadingError("Username or password is incorrect ! "))
         })
     }
 }

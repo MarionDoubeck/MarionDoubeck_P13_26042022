@@ -1,7 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { useState } from 'react'
-import Footer from "../global/Footer"
-import Header from "../global/Header"
 import { updateUserProfile } from '../../services/CallApi'
 
 const Profile = () => {
@@ -33,7 +31,6 @@ const Profile = () => {
 
   return (
     <>
-      <Header />
       <main className="main bg-dark">
         <div className="header">
           <div id="nameContainer">
@@ -102,7 +99,6 @@ const Profile = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

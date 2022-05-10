@@ -1,6 +1,3 @@
-import React from 'react'
-import Footer from '../../global/Footer'
-import Header from '../../global/Header'
 import Features from './Features'
 import Hero from './Hero'
 import {features} from './FeaturesContent'
@@ -15,13 +12,11 @@ const Home = () => {
 
   return (
     <>
-    <Header />
     <Hero />
     <section className="features">
       <h2 className="sr-only">Features</h2>
       {featuresReturn}
     </section>
-    <Footer />
     </>
   )
 }
