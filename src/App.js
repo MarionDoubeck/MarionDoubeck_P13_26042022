@@ -5,7 +5,7 @@ import Login from './components/pages/Login';
 import Profile from './components/pages/Profile';
 
 
-const App = ({customerId}) => {
+const App = () => {
   return (
       <BrowserRouter>
         <Routes>
