@@ -17,8 +17,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          { connected && <Route path="/profile" element={<Profile /> } /> }
-          { !connected && <Route path="/profile" element={<Login />} />}
+          { connected ? <Route path="/profile" element={<Profile /> } /> :
+          connected && <Route path="/profile" element={<Login />} />}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
