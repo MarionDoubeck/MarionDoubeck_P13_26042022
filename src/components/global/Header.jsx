@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import logo from '../../img/argentBankLogo.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../customers/CustAction';
@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <div className="main-nav">
-      <NavLink exact="true" to={`/`}>
+      <NavLink to={`/`}>
         <div className="main-nav-logo">
           <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
           <h1 className="sr-only">Argent Bank</h1>
@@ -24,18 +24,18 @@ const Header = () => {
       </NavLink>
       {connected ?
         <div>
-          <NavLink exact="true" to={`/${customerId}/profile`}  className="main-nav-item">
+          <NavLink to={`/${customerId}/profile`}  className="main-nav-item">
               <i className="fa fa-user-circle"></i>
               {` ${customerFirstName}`}
           </NavLink>
-          <NavLink exact="true" to={`/`} onClick={dispatch(logout)}>
+          <NavLink to={`/`} onClick={signOut}>
               <i className="fa fa-sign-out"></i>
               {" "}Sign Out 
           </NavLink>
         </div>
       :
         <div>
-        <NavLink exact="true" to={`/login`} className="main-nav-item">
+        <NavLink to={`/login`} className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             {" "}Sign In 
         </NavLink>
